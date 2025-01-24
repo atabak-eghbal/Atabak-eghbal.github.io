@@ -14,7 +14,7 @@ I am a Machine Learning Engineer and Researcher with a strong background in teac
 
 ## How to Access the Site
 
-Visit the live website at [https://<username>.github.io](https://<username>.github.io), where `<username>` is your GitHub username.
+Visit the live website at [https://<username>.github.io](https://atabak-eghbal.github.io)
 
 ## Repository Structure
 

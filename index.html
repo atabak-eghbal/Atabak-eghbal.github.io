@@ -12,10 +12,11 @@
             line-height: 1.6;
         }
         header {
-            background: #333;
+            background: url('mathbackground.jpg') no-repeat center center/cover;
             color: #fff;
-            padding: 10px 0;
+            padding: 30px 0;
             text-align: center;
+            position: relative;
         }
         .container {
             padding: 20px;
@@ -28,36 +29,73 @@
         a {
             color: #007acc;
         }
+        ul {
+            margin: 0;
+            padding: 0 0 0 20px;
+        }
+        img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            margin: 10px auto;
+            display: block;
+            border: 5px solid #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .header-content {
+            background-color: rgba(0, 0, 0, 0.6);
+            display: inline-block;
+            padding: 20px;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
-  <header>
-    <img src="profile.jpg" alt="Profile Photo" style="border-radius: 50%; width: 150px; height: 150px; margin: 10px auto; display: block;">
-    <h1>Atabak Eghbal</h1>
-    <p>Vancouver, Canada | <a href="mailto:eghbal.atabak@gmail.com">eghbal.atabak@gmail.com</a></p>
-    <p><a href="https://linkedin.com/in/atabak-eghbal" target="_blank">LinkedIn</a></p>
-</header>
-
+    <header>
+        <img src="myself.jpg" alt="Profile Photo">
+        <div class="header-content">
+            <h1>Atabak Eghbal</h1>
+            <p>Vancouver, Canada | <a href="mailto:eghbal.atabak@gmail.com">eghbal.atabak@gmail.com</a></p>
+            <p><a href="https://linkedin.com/in/atabak-eghbal" target="_blank">LinkedIn</a></p>
+        </div>
+    </header>
     <div class="container">
         <section>
             <h2>Experience</h2>
-            <p><strong>Machine Learning Teaching Assistant</strong> (2023 – 2024)<br>University of British Columbia, Vancouver, Canada</p>
+            <p><strong>Machine Learning Teaching Assistant for the Master of Data Science Program</strong> (2023 &ndash; 2024)<br>University of British Columbia, Vancouver, Canada</p>
             <ul>
-                <li>Taught courses on machine learning and advanced topics like NLP, RNNs, regression methods, etc.</li>
-                <li>Guided students in data visualization, clustering, and programming for data manipulation.</li>
+                <li>Taught legal, ethical, and security issues in DSCI 541, database management in DSCI 513, and programming for data manipulation in DSCI 523.</li>
+                <li>Guided students through data visualization techniques and dimension reduction methods in DSCI 531 and unsupervised learning approaches, including clustering and EM algorithm, in DSCI 563.</li>
+                <li>Instructed advanced regression techniques such as generalized linear models, mixed effects, and robust regression in DSCI 562, along with methods for handling missing data.</li>
+                <li>Led discussions on advanced machine learning methods in DSCI 575, focusing on NLP, recommender systems, Markov chains, and RNNs, including practical application with popular NLP libraries.</li>
             </ul>
-            <p><strong>Graduate Teaching Assistant</strong> (2021 – 2024)<br>University of British Columbia, Vancouver, Canada</p>
+            <p><strong>Graduate Teaching Assistant</strong> (2021 &ndash; 2024)<br>University of British Columbia, Vancouver, Canada</p>
             <ul>
-                <li>Taught machine learning courses on transformers, decision trees, and neural networks.</li>
-                <li>Explained computational and statistical methods to engineering students.</li>
+                <li>Taught CPSC 440 (Advanced Machine Learning), covering topics such as Bayesian learning, generative vs. discriminative classifiers, recurrent networks, attention mechanisms, transformers, Markov chains, graphical models, and diffusion models.</li>
+                <li>Guided students in understanding core machine learning algorithms like decision trees, neural networks, and model evaluation using scikit-learn, as part of CPSC 330 (Applied Machine Learning).</li>
+                <li>Assisted with data science and machine learning topics such as regression, classification, and data wrangling using Python and R, transferring these skills to students in DSCI 100 (8 terms).</li>
+                <li>Taught computational and statistical methods, including C++ programming for engineering applications, during APSC 160 (8 terms) and BMEG 557.</li>
+                <li>Explained human-centered design processes, including prototyping and evaluation techniques, while teaching students how to develop interactive systems in CPEN 441.</li>
+                <li>Introduced computational thinking principles such as problem-solving strategies, data processing, and real-world applications, while teaching CPSC 100.</li>
+            </ul>
+            <p><strong>Optimization/Machine Learning Research Assistant</strong> (2020 &ndash; 2023)<br>University of British Columbia, Vancouver, Canada</p>
+            <ul>
+                <li>Developed surgical workflows in ArtiSynth, a Java-based software, for biomechanical simulations in mandibular reconstruction.</li>
+                <li>Implemented optimization methods and geometrical objective functions, improving outcomes in reconstructive surgeries and dental implantation.</li>
             </ul>
         </section>
         <section>
             <h2>Selected Projects</h2>
             <ul>
-                <li><strong>Facial Expression-Based Video Generation:</strong> Developed a GAN-based algorithm improving motion consistency by 10%.</li>
-                <li><strong>Transformers in Computer Vision:</strong> Fine-tuned ViT models for humpback whale identification, achieving a 6% accuracy improvement.</li>
-                <li><strong>Text-to-Video Animation:</strong> Proposed temporal loss functions to enhance animation smoothness and fidelity.</li>
+                <li><strong>Facial Expression-Based Video Generation:</strong> Developed a GAN-based video generation algorithm using facial expressions, improving motion consistency by 10%.</li>
+                <li><strong>Transformers and Attention in Computer Vision:</strong> Fine-tuned custom ViT models on the Humpback Whale Identification dataset from Kaggle, achieving a 6% accuracy improvement over traditional CNN models.</li>
+                <li><strong>Text-to-Video Vector Animation with Multi-Object and Temporal Controls:</strong>
+                    <ul>
+                        <li>Proposed a Shape Preservation Loss (L1 penalty) to better maintain fidelity to original sketch geometry, achieving more natural and accurate motion.</li>
+                        <li>Incorporated a Temporal Consistency Loss to reduce jitter, improving smoothness and stability in animated sequences.</li>
+                        <li>Developed a gating mechanism inspired by Mixture-of-Experts (MoE) and volumetric rendering, allowing selective modulation of deformations, reducing artifacts, and stabilizing optimization.</li>
+                    </ul>
+                </li>
             </ul>
         </section>
         <section>
@@ -69,7 +107,7 @@
         </section>
         <section>
             <h2>Education</h2>
-            <p><strong>Master of Engineering in Electrical and Computer Engineering</strong> (2020 – 2024)<br>University of British Columbia, Vancouver, BC, Canada</p>
+            <p><strong>Master of Engineering in Electrical and Computer Engineering</strong> (2020 &ndash; 2024)<br>University of British Columbia, Vancouver, BC, Canada</p>
         </section>
         <section>
             <h2>Publications</h2>

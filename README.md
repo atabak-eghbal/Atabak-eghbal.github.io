@@ -1,4 +1,4 @@
-# Atabak Eghbal's GitHub Pages
+# Austin (Atabak) Eghbal's GitHub Pages
 
 Welcome to my personal GitHub Pages site! This website serves as an interactive resume and portfolio, showcasing my professional experience, technical skills, and selected projects.
 

@@ -1,125 +1,709 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume - Austin(Atabak) Eghbal</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-        header {
-            background: url('mathbackground.jpg') no-repeat center center/cover;
-            color: #fff;
-            padding: 30px;
-            text-align: left;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            position: relative;
-        }
-        .container {
-            padding: 20px;
-            max-width: 800px;
-            margin: auto;
-        }
-        h1 {
-            color: #F4C430;
-            margin: 0;
-            font-size: 3em;
-        }
-        h2 {
-            color: #333;
-        }
-        a {
-            color: #007acc;
-        }
-        ul {
-            margin: 0;
-            padding: 0 0 0 20px;
-        }
-        img {
-            border-radius: 50%;
-            width: 300px;
-            height: 300px;
-            border: 5px solid #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        .header-content {
-            background-color: rgba(0, 0, 0, 0.6);
-            padding: 20px;
-            border-radius: 10px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Atabak Eghbal &mdash; ML Engineer &amp; Researcher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent:      #2563eb;
+      --accent-dark: #1d4ed8;
+      --text:        #1e293b;
+      --muted:       #64748b;
+      --border:      #e2e8f0;
+      --bg:          #f8fafc;
+      --card:        #ffffff;
+      --tag-bg:      #eff6ff;
+      --tag-text:    #1d4ed8;
+      --hero-overlay: rgba(10,15,30,0.68);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ===== NAV ===== */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+    }
+    nav .nav-inner {
+      max-width: 1000px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+    nav .nav-logo {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+      letter-spacing: 0.02em;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.75rem;
+    }
+    nav ul li a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    nav ul li a:hover { color: var(--accent); text-decoration: none; }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: url('mathbackground.jpg') no-repeat center center / cover;
+      position: relative;
+      color: #fff;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--hero-overlay);
+    }
+    .hero-inner {
+      position: relative;
+      max-width: 1000px;
+      margin: auto;
+      padding: 5rem 2rem 4rem;
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .hero-photo {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 4px solid rgba(255,255,255,0.85);
+      object-fit: cover;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+      flex-shrink: 0;
+    }
+    .hero-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      line-height: 1.2;
+      margin-bottom: 0.4rem;
+    }
+    .hero-text .tagline {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 1.25rem;
+      font-weight: 300;
+    }
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .hero-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.35);
+      color: #fff;
+      padding: 0.4rem 0.9rem;
+      border-radius: 9999px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+    .hero-links a:hover { background: rgba(255,255,255,0.24); text-decoration: none; }
+
+    /* ===== SECTION WRAPPER ===== */
+    .section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 3.5rem 2rem;
+    }
+    .section + .section { padding-top: 0; }
+
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 2rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--accent);
+      display: inline-block;
+    }
+
+    /* ===== SUMMARY ===== */
+    .summary-text {
+      font-size: 0.97rem;
+      color: #334155;
+      max-width: 820px;
+      line-height: 1.8;
+    }
+    .summary-text strong { color: var(--text); }
+
+    /* ===== TIMELINE ===== */
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+
+    .tl-item {
+      display: grid;
+      grid-template-columns: 160px 1px 1fr;
+      gap: 0 1.5rem;
+    }
+
+    .tl-date {
+      text-align: right;
+      padding-top: 0.25rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .tl-line {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .tl-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      margin-top: 0.35rem;
+    }
+    .tl-connector {
+      width: 2px;
+      flex: 1;
+      background: var(--border);
+      margin-top: 4px;
+    }
+    .tl-item:last-child .tl-connector { display: none; }
+
+    .tl-body {
+      padding-bottom: 2.25rem;
+    }
+    .tl-body h3 {
+      font-size: 0.975rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.1rem;
+    }
+    .tl-body .org {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 0.65rem;
+    }
+    .tl-body ul {
+      padding-left: 1.1rem;
+      font-size: 0.875rem;
+      color: #475569;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .tl-body ul li { line-height: 1.6; }
+    .tl-body ul ul { margin-top: 0.25rem; }
+
+    /* ===== PROJECT CARDS ===== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem 1.5rem;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .project-card:hover {
+      box-shadow: 0 6px 24px rgba(37,99,235,0.1);
+      transform: translateY(-2px);
+    }
+    .project-card h3 {
+      font-size: 0.92rem;
+      font-weight: 600;
+      margin-bottom: 0.15rem;
+      color: var(--text);
+    }
+    .project-card .proj-period {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 0.65rem;
+    }
+    .project-card p, .project-card ul {
+      font-size: 0.845rem;
+      color: #475569;
+      line-height: 1.65;
+    }
+    .project-card ul {
+      padding-left: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    /* ===== SKILLS ===== */
+    .skills-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .skill-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    .skill-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--muted);
+      min-width: 220px;
+      padding-top: 0.25rem;
+    }
+    .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .tag {
+      display: inline-block;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      border: 1px solid #bfdbfe;
+    }
+
+    /* ===== EDUCATION ===== */
+    .edu-list { display: flex; flex-direction: column; gap: 1.1rem; }
+    .edu-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .edu-item .degree {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .edu-item .school {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 0.15rem;
+    }
+    .edu-item .period {
+      font-size: 0.8rem;
+      color: var(--muted);
+      white-space: nowrap;
+      font-weight: 500;
+    }
+
+    /* ===== PUBLICATIONS ===== */
+    .pub-list { display: flex; flex-direction: column; gap: 1.1rem; }
+    .pub-item {
+      background: var(--card);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 1rem 1.25rem;
+      font-size: 0.875rem;
+      color: #334155;
+      line-height: 1.7;
+    }
+    .pub-item .pub-badge {
+      display: inline-block;
+      background: #dcfce7;
+      color: #166534;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      margin-right: 0.4rem;
+      vertical-align: middle;
+    }
+    .pub-item em { font-style: italic; color: #475569; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--muted);
+      padding: 2rem;
+      border-top: 1px solid var(--border);
+      margin-top: 1rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 640px) {
+      .hero-text h1 { font-size: 2rem; }
+      .tl-item { grid-template-columns: 0 1px 1fr; }
+      .tl-date { display: none; }
+      .skill-label { min-width: 100%; }
+      nav ul { gap: 1rem; }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <img src="myself.jpg" alt="Profile Photo">
-        <div class="header-content">
-            <h1>Atabak Eghbal</h1>
-            <p>Vancouver, Canada | <a href="mailto:eghbal.atabak@gmail.com">eghbal.atabak@gmail.com</a></p>
-            <p><a href="https://linkedin.com/in/atabak-eghbal" target="_blank">LinkedIn</a></p>
-        </div>
-    </header>
-    <div class="container">
-        <section>
-            <h2>Experience</h2>
-            <p><strong>Machine Learning Teaching Assistant for the Master of Data Science Program</strong> (2023 &ndash; 2024)<br>University of British Columbia, Vancouver, Canada</p>
-            <ul>
-                <li>Taught legal, ethical, and security issues in DSCI 541, database management in DSCI 513, and programming for data manipulation in DSCI 523.</li>
-                <li>Guided students through data visualization techniques and dimension reduction methods in DSCI 531 and unsupervised learning approaches, including clustering and EM algorithm, in DSCI 563.</li>
-                <li>Instructed advanced regression techniques such as generalized linear models, mixed effects, and robust regression in DSCI 562, along with methods for handling missing data.</li>
-                <li>Led discussions on advanced machine learning methods in DSCI 575, focusing on NLP, recommender systems, Markov chains, and RNNs, including practical application with popular NLP libraries.</li>
-            </ul>
-            <p><strong>Graduate Teaching Assistant</strong> (2021 &ndash; 2024)<br>University of British Columbia, Vancouver, Canada</p>
-            <ul>
-                <li>Taught CPSC 440 (Advanced Machine Learning), covering topics such as Bayesian learning, generative vs. discriminative classifiers, recurrent networks, attention mechanisms, transformers, Markov chains, graphical models, and diffusion models.</li>
-                <li>Guided students in understanding core machine learning algorithms like decision trees, neural networks, and model evaluation using scikit-learn, as part of CPSC 330 (Applied Machine Learning).</li>
-                <li>Assisted with data science and machine learning topics such as regression, classification, and data wrangling using Python and R, transferring these skills to students in DSCI 100 (8 terms).</li>
-                <li>Taught computational and statistical methods, including C++ programming for engineering applications, during APSC 160 (8 terms) and BMEG 557.</li>
-                <li>Explained human-centered design processes, including prototyping and evaluation techniques, while teaching students how to develop interactive systems in CPEN 441.</li>
-                <li>Introduced computational thinking principles such as problem-solving strategies, data processing, and real-world applications, while teaching CPSC 100.</li>
-            </ul>
-            <p><strong>Optimization/Machine Learning Research Assistant</strong> (2020 &ndash; 2023)<br>University of British Columbia, Vancouver, Canada</p>
-            <ul>
-                <li>Developed surgical workflows in ArtiSynth, a Java-based software, for biomechanical simulations in mandibular reconstruction.</li>
-                <li>Implemented optimization methods and geometrical objective functions, improving outcomes in reconstructive surgeries and dental implantation.</li>
-            </ul>
-        </section>
-        <section>
-            <h2>Selected Projects</h2>
-            <ul>
-                <li><strong>Facial Expression-Based Video Generation:</strong> Developed a GAN-based video generation algorithm using facial expressions, improving motion consistency by 10%.</li>
-                <li><strong>Transformers and Attention in Computer Vision:</strong> Fine-tuned custom ViT models on the Humpback Whale Identification dataset from Kaggle, achieving a 6% accuracy improvement over traditional CNN models.</li>
-                <li><strong>Text-to-Video Vector Animation with Multi-Object and Temporal Controls:</strong>
-                    <ul>
-                        <li>Proposed a Shape Preservation Loss (L1 penalty) to better maintain fidelity to original sketch geometry, achieving more natural and accurate motion.</li>
-                        <li>Incorporated a Temporal Consistency Loss to reduce jitter, improving smoothness and stability in animated sequences.</li>
-                        <li>Developed a gating mechanism inspired by Mixture-of-Experts (MoE) and volumetric rendering, allowing selective modulation of deformations, reducing artifacts, and stabilizing optimization.</li>
-                    </ul>
-                </li>
-            </ul>
-        </section>
-        <section>
-            <h2>Technical Skills</h2>
-            <p>Languages: Python, Java, C++, MATLAB, SQL</p>
-            <p>Frameworks: TensorFlow, PyTorch, Keras</p>
-            <p>Tools: Git, Docker, Jupyter, ArtiSynth</p>
-            <p>Platforms: Linux, MacOS, Google Cloud Platform</p>
-        </section>
-        <section>
-            <h2>Education</h2>
-            <p><strong>Master of Engineering in Electrical and Computer Engineering</strong> (2020 &ndash; 2024)<br>University of British Columbia, Vancouver, BC, Canada</p>
-        </section>
-        <section>
-            <h2>Publications</h2>
-            <ul>
-                <li><a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/11598/115981O/Snake-based-interactive-tooth-segmentation-for-3D-mandibular-meshes/10.1117/12.2581988.short" target="_blank">Snake-based interactive tooth segmentation for 3D mandibular meshes (SPIE 2021)</a></li>
-            </ul>
-        </section>
+
+<!-- ===== NAV ===== -->
+<nav>
+  <div class="nav-inner">
+    <span class="nav-logo">Atabak Eghbal</span>
+    <ul>
+      <li><a href="#summary">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#publications">Publications</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="hero-inner">
+    <img src="myself.jpg" alt="Atabak Eghbal" class="hero-photo" />
+    <div class="hero-text">
+      <h1>Atabak Eghbal</h1>
+      <p class="tagline">Machine Learning Engineer &nbsp;&bull;&nbsp; Computer Vision &nbsp;&bull;&nbsp; Vancouver, BC</p>
+      <div class="hero-links">
+        <a href="mailto:eghbal.atabak@gmail.com"><i class="fa fa-envelope"></i> eghbal.atabak@gmail.com</a>
+        <a href="https://github.com/atabak-eghbal" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://linkedin.com/in/atabak-eghbal" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      </div>
     </div>
+  </div>
+</header>
+
+<!-- ===== SUMMARY ===== -->
+<section class="section" id="summary">
+  <h2 class="section-title">About Me</h2>
+  <p class="summary-text">
+    Machine Learning Engineer with <strong>5+ years</strong> building <strong>end-to-end ML and computer vision systems</strong> for high-stakes imaging workflows&mdash;from dataset preparation and experimentation to evaluation, optimization, and deployment-ready pipelines. Strong background in <strong>Python</strong> and <strong>PyTorch</strong>, with hands-on work in <strong>image segmentation</strong>, <strong>3D imaging workflows</strong>, <strong>transformer-based vision models</strong>, and validation-driven system design. Comfortable moving from research-style prototyping to production-minded implementation while collaborating closely with domain experts and engineering teams to deliver reliable, measurable ML systems.
+  </p>
+</section>
+
+<!-- ===== EXPERIENCE ===== -->
+<section class="section" id="experience">
+  <h2 class="section-title">Experience</h2>
+  <div class="timeline">
+
+    <!-- Adjunct Faculty -->
+    <div class="tl-item">
+      <div class="tl-date">Sep 2025 &ndash; Present</div>
+      <div class="tl-line"><div class="tl-dot"></div><div class="tl-connector"></div></div>
+      <div class="tl-body">
+        <h3>Adjunct Faculty &mdash; Part-Time, Contract</h3>
+        <p class="org">Corpus Christi &amp; St. Mark&rsquo;s Colleges @ UBC &bull; Vancouver, BC</p>
+        <ul>
+          <li>Teach CPSC 110/121 and DSCI 100 with emphasis on disciplined problem solving, debugging, and reasoning about correctness.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Data Science Instructor -->
+    <div class="tl-item">
+      <div class="tl-date">May 2025 &ndash; Present</div>
+      <div class="tl-line"><div class="tl-dot"></div><div class="tl-connector"></div></div>
+      <div class="tl-body">
+        <h3>Data Science Instructor &mdash; Part-Time, Contract</h3>
+        <p class="org">Cornerstone Intl. Community College of Canada (CICCC) &bull; Vancouver, BC</p>
+        <ul>
+          <li>Deliver a project-based Python sequence and guide students through practical model development, evaluation, and iteration.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ML Research Engineer -->
+    <div class="tl-item">
+      <div class="tl-date">Sep 2020 &ndash; Aug 2024</div>
+      <div class="tl-line"><div class="tl-dot"></div><div class="tl-connector"></div></div>
+      <div class="tl-body">
+        <h3>Senior ML Research Engineer &mdash; Medical Imaging / CV Pipelines</h3>
+        <p class="org">University of British Columbia &mdash; Surgical Technologies Laboratory &bull; Vancouver, BC</p>
+        <ul>
+          <li>Built end-to-end <strong>imaging and compute pipelines</strong> that transformed raw clinical CT data into validated 3D artifacts for downstream planning and analysis.</li>
+          <li>Developed <strong>CT-based reconstruction and segmentation workflows</strong>, including preprocessing, standardized output generation, and quality-control checks for reproducible downstream use.</li>
+          <li>Designed <strong>evaluation and validation harnesses</strong> to assess geometry quality, reconstruction reliability, and feasibility across patient cohorts, supporting rigorous error analysis and iterative improvement.</li>
+          <li>Improved pipeline throughput and reliability by profiling bottlenecks, applying <strong>batching/caching</strong>, and adding explicit error handling, diagnostics, and safe fallbacks.</li>
+          <li>Implemented optimization workflows in <strong>ArtiSynth</strong> with well-defined objective functions, constraints, and solver checks to support robust technical decision-making in production-style research systems.</li>
+          <li>Worked closely with surgeons and researchers to translate ambiguous requirements into measurable technical criteria, documented assumptions clearly, and iterated quickly without breaking downstream workflows.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Technical Mentor & Instructor -->
+    <div class="tl-item">
+      <div class="tl-date">Jan 2021 &ndash; Present</div>
+      <div class="tl-line"><div class="tl-dot"></div><div class="tl-connector"></div></div>
+      <div class="tl-body">
+        <h3>Technical Mentor &amp; Instructor &mdash; ML / Data Science / CS</h3>
+        <p class="org">University of British Columbia &amp; CICCC &bull; Vancouver, BC</p>
+        <ul>
+          <li>Designed hands-on labs covering <strong>ML workflows end to end</strong>: data preparation, training loops, model evaluation, error analysis, debugging, and reproducibility.</li>
+          <li>Mentored learners on building reliable ML systems with strong experimental habits, including baselines, validation design, and performance-focused iteration.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ML TA for MDS -->
+    <div class="tl-item">
+      <div class="tl-date">2023 &ndash; 2024</div>
+      <div class="tl-line"><div class="tl-dot"></div><div class="tl-connector"></div></div>
+      <div class="tl-body">
+        <h3>Teaching Assistant &mdash; Master of Data Science Program</h3>
+        <p class="org">University of British Columbia &bull; Vancouver, BC</p>
+        <ul>
+          <li>Taught legal, ethical, and security issues in <strong>DSCI 541</strong>, database management in <strong>DSCI 513</strong>, and programming for data manipulation in <strong>DSCI 523</strong>.</li>
+          <li>Guided students through data visualization techniques and dimension reduction methods in <strong>DSCI 531</strong> and unsupervised learning approaches (clustering, EM algorithm) in <strong>DSCI 563</strong>.</li>
+          <li>Instructed advanced regression techniques (generalized linear models, mixed effects, robust regression) in <strong>DSCI 562</strong>, along with methods for handling missing data.</li>
+          <li>Led discussions on advanced ML methods in <strong>DSCI 575</strong>, focusing on NLP, recommender systems, Markov chains, and RNNs, including practical application with popular NLP libraries.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Graduate TA -->
+    <div class="tl-item">
+      <div class="tl-date">2021 &ndash; 2024</div>
+      <div class="tl-line"><div class="tl-dot"></div><div class="tl-connector"></div></div>
+      <div class="tl-body">
+        <h3>Graduate Teaching Assistant</h3>
+        <p class="org">University of British Columbia &bull; Vancouver, BC</p>
+        <ul>
+          <li>Taught <strong>CPSC 440</strong> (Advanced Machine Learning): Bayesian learning, generative vs. discriminative classifiers, recurrent networks, attention mechanisms, transformers, Markov chains, graphical models, and diffusion models.</li>
+          <li>Guided students in core ML algorithms&mdash;decision trees, neural networks, model evaluation with scikit-learn&mdash;in <strong>CPSC 330</strong> (Applied Machine Learning).</li>
+          <li>Assisted with regression, classification, and data wrangling using Python and R in <strong>DSCI 100</strong> (8 terms).</li>
+          <li>Taught computational and statistical methods, including C++ programming for engineering applications, in <strong>APSC 160</strong> (8 terms) and <strong>BMEG 557</strong>.</li>
+          <li>Explained human-centered design processes&mdash;prototyping and evaluation techniques&mdash;and taught students how to develop interactive systems in <strong>CPEN 441</strong>.</li>
+          <li>Introduced computational thinking principles (problem-solving strategies, data processing, real-world applications) in <strong>CPSC 100</strong>.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Graduate Researcher -->
+    <div class="tl-item">
+      <div class="tl-date">2015 &ndash; 2018</div>
+      <div class="tl-line"><div class="tl-dot"></div><div class="tl-connector"></div></div>
+      <div class="tl-body">
+        <h3>Graduate Researcher &mdash; Biomechanics Simulation / FSI</h3>
+        <p class="org">Tehran Polytechnic (Amirkabir University of Technology) &bull; Tehran, Iran</p>
+        <ul>
+          <li>Built and validated a physics-based simulation workflow, strengthening rigor around numerical behavior, parameter sweeps, and model verification.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section class="section" id="projects">
+  <h2 class="section-title">Selected Projects</h2>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <h3>CT-to-3D Reconstruction &amp; Validation Workflow</h3>
+      <p class="proj-period">Research Engineering &mdash; 2020&ndash;2024</p>
+      <ul>
+        <li>Built an end-to-end workflow from CT inputs to validated 3D anatomical models, with standardized preprocessing, reproducible outputs, and debuggable quality checks.</li>
+        <li>Integrated optimization and QC metrics to ensure outputs were feasible, comparable, and reliable across patients and downstream planning tasks.</li>
+      </ul>
+    </div>
+
+    <div class="project-card">
+      <h3>3D Geometry &amp; Segmentation Support Utilities</h3>
+      <p class="proj-period">Research Engineering &mdash; 2020&ndash;2024</p>
+      <ul>
+        <li>Developed reusable utilities for geometry processing, structured validation, edge-case handling, and reproducible comparison across imaging cohorts.</li>
+        <li>Supported segmentation-oriented and image-guided workflows used in mandibular modeling and analysis.</li>
+      </ul>
+    </div>
+
+    <div class="project-card">
+      <h3>ML Evaluation &amp; Reliability Tooling</h3>
+      <p class="proj-period">Research Engineering &mdash; 2020&ndash;2024</p>
+      <ul>
+        <li>Created metrics, regression-style checks, and validation cases to detect failure modes early and support continuous improvement of imaging pipelines.</li>
+      </ul>
+    </div>
+
+    <div class="project-card">
+      <h3>Vision Transformer for Image Classification</h3>
+      <p class="proj-period">Personal / Research &mdash; 2024</p>
+      <ul>
+        <li>Applied Vision Transformers (ViT) and CNN baselines to an image classification task, handling preprocessing, model comparison, evaluation, and iterative tuning.</li>
+        <li>Analyzed model performance and generalization behavior across architectures to support informed model selection.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== SKILLS ===== -->
+<section class="section" id="skills">
+  <h2 class="section-title">Technical Skills</h2>
+  <div class="skills-grid">
+
+    <div class="skill-row">
+      <span class="skill-label">ML / Computer Vision</span>
+      <div class="tags">
+        <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">TensorFlow</span>
+        <span class="tag">scikit-learn</span><span class="tag">OpenCV</span>
+        <span class="tag">Image Segmentation</span><span class="tag">Image Classification</span>
+        <span class="tag">Model Evaluation</span><span class="tag">Experimental Design</span>
+      </div>
+    </div>
+
+    <div class="skill-row">
+      <span class="skill-label">Transformer Models</span>
+      <div class="tags">
+        <span class="tag">Vision Transformers (ViT)</span><span class="tag">Transfer Learning</span>
+        <span class="tag">Hugging Face</span>
+      </div>
+    </div>
+
+    <div class="skill-row">
+      <span class="skill-label">Imaging / Spatial Workflows</span>
+      <div class="tags">
+        <span class="tag">3D Slicer</span><span class="tag">SimpleITK</span><span class="tag">VTK</span>
+        <span class="tag">CT Reconstruction</span><span class="tag">Geometry Processing</span>
+        <span class="tag">Quality Control</span>
+      </div>
+    </div>
+
+    <div class="skill-row">
+      <span class="skill-label">Training / Data</span>
+      <div class="tags">
+        <span class="tag">Dataset Preparation</span><span class="tag">Augmentation Strategy</span>
+        <span class="tag">Reproducibility</span><span class="tag">Batching / Parallelism</span>
+        <span class="tag">Data Validation</span>
+      </div>
+    </div>
+
+    <div class="skill-row">
+      <span class="skill-label">Systems / Deployment</span>
+      <div class="tags">
+        <span class="tag">Git / GitHub</span><span class="tag">Docker</span><span class="tag">Linux / UNIX</span>
+        <span class="tag">CI/CD</span><span class="tag">ONNX</span>
+        <span class="tag">AWS / GCP</span><span class="tag">Structured Logging</span>
+      </div>
+    </div>
+
+    <div class="skill-row">
+      <span class="skill-label">Optimization / Simulation</span>
+      <div class="tags">
+        <span class="tag">Numerical Optimization</span><span class="tag">ArtiSynth</span>
+        <span class="tag">Abaqus</span><span class="tag">ADINA</span>
+      </div>
+    </div>
+
+    <div class="skill-row">
+      <span class="skill-label">Languages</span>
+      <div class="tags">
+        <span class="tag">Python</span><span class="tag">Java</span><span class="tag">C++</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== EDUCATION ===== -->
+<section class="section" id="education">
+  <h2 class="section-title">Education</h2>
+  <div class="edu-list">
+
+    <div class="edu-item">
+      <div>
+        <p class="degree">Master of Engineering &mdash; Electrical &amp; Computer Engineering</p>
+        <p class="school">University of British Columbia &bull; Vancouver, BC, Canada</p>
+      </div>
+      <span class="period">Sep 2023 &ndash; Dec 2024</span>
+    </div>
+
+    <div class="edu-item">
+      <div>
+        <p class="degree">PhD Candidate &mdash; Biomedical Engineering</p>
+        <p class="school">University of British Columbia &bull; Vancouver, BC, Canada</p>
+      </div>
+      <span class="period">Sep 2020 &ndash; Aug 2023</span>
+    </div>
+
+    <div class="edu-item">
+      <div>
+        <p class="degree">M.A.Sc. &mdash; Biomedical Engineering</p>
+        <p class="school">Tehran Polytechnic (Amirkabir University of Technology) &bull; Tehran, Iran</p>
+      </div>
+      <span class="period">2015 &ndash; 2018</span>
+    </div>
+
+    <div class="edu-item">
+      <div>
+        <p class="degree">B.A.Sc. &mdash; Mechanical Engineering</p>
+        <p class="school">University of Tabriz &bull; Tabriz, Iran</p>
+      </div>
+      <span class="period">2011 &ndash; 2015</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== PUBLICATIONS ===== -->
+<section class="section" id="publications">
+  <h2 class="section-title">Publications</h2>
+  <div class="pub-list">
+
+    <div class="pub-item">
+      <span class="pub-badge">Published</span>
+      Aftabi H, <strong>Eghbal A</strong>, McGregor S, Zaraska K, Prisman E, Hodgson A, Fels S. (Dec 2023).
+      <em>Computational Models and Their Applications in Biomechanical Analysis of Mandibular Reconstruction Surgery.</em>
+      <a href="https://www.sciencedirect.com/science/article/abs/pii/S0010482523013525?via%3Dihub" target="_blank" rel="noopener">Computers in Biology and Medicine &rarr;</a>
+    </div>
+
+    <div class="pub-item">
+      <span class="pub-badge">Published</span>
+      Yang R, Abdi AH, <strong>Eghbal A</strong>, Wang E, Tran KL, Yang D, &hellip; Fels S. (Feb 2021).
+      <em>Snake-based interactive tooth segmentation for 3D mandibular meshes.</em>
+      <a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/11598/115981O/Snake-based-interactive-tooth-segmentation-for-3D-mandibular-meshes/10.1117/12.2581988.short" target="_blank" rel="noopener">Medical Imaging 2021: SPIE, Vol. 11598 &rarr;</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>&copy; 2025 Atabak Eghbal &mdash; Vancouver, BC &mdash; <a href="mailto:eghbal.atabak@gmail.com">eghbal.atabak@gmail.com</a></p>
+</footer>
+
 </body>
 </html>
